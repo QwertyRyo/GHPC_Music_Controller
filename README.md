@@ -13,14 +13,14 @@ Run the game once to create a MelonPreferences.cfg file. In there you can pick w
 Due to how Broken Arrow and Not One Step Back are accessed by the game, it is easier for loadtimes to simply load the music in from the mod assets folder. 
 
 Sample Structure:
-
+```
 Bin/
 ├── Mods/
 │   ├── GHPC_Music_Controller.dll
-│   └── Music_Controller_Assets
-|       └── Broken Arrow_L1.ogg
+│   └── Music_Controller_Assets/
+│       └── Broken Arrow_L1.ogg
 └── GHPC.Exe
-
+```
 
 **Acknowledgements**
 Programming - QwertyRyo
