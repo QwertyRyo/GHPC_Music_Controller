@@ -27,7 +27,7 @@ namespace GHPC_Music_Controller {
                               "Danger Close" };
 
     private static readonly HashSet<string> _bundledOverrideSongs =
-        new HashSet<string> { "Broken Arrow", "Not One Step Back" };
+        new HashSet<string> { "Broken Arrow", "Not One Step Back", "Zero Hour"};
 
     private static string AssetsFolder => Path.Combine(
         Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
@@ -42,7 +42,7 @@ namespace GHPC_Music_Controller {
           MelonPreferences.CreateCategory("GHPC_Music_Controller");
       song_choice = cfg.CreateEntry<string>("Song Choice", "");
       song_choice.Comment =
-          "Pick between the following in-game songs: \"Broken Arrow\", \"Not One Step Back\", \"Defilade\", \"Threat Factor\", \"Danger Close\", \"Steel Horizon\", or your own custom song name. Custom songs need 4 audio files (.wav or .ogg) as layers in Music_Controller_Assets/ named YourSong_L1.wav, YourSong_L2.wav, YourSong_L3.wav, YourSong_L4.wav. _L1 = low intensity, _L2 = medium, _L3 = high, _L4 = max intensity. All files for 1 song must have same length, sample rate, channels, and bit depth. Leave blank for default random behavior. Works with OGG-Vorpis or 16-bit pcm wav formats.";
+          "Pick between the following in-game songs: \"Broken Arrow\", \"Not One Step Back\", \"Defilade\", \"Threat Factor\", \"Danger Close\", \"Steel Horizon\", \"Zero Hour\", or your own custom song name. Custom songs need 4 audio files (.wav or .ogg) as layers in Music_Controller_Assets/ named YourSong_L1.wav, YourSong_L2.wav, YourSong_L3.wav, YourSong_L4.wav. _L1 = low intensity, _L2 = medium, _L3 = high, _L4 = max intensity. All files for 1 song must have same length, sample rate, channels, and bit depth. Leave blank for default random behavior. Works with OGG-Vorpis or 16-bit pcm wav formats.";
 
       MelonPreferences.Save();
       HarmonyInstance.PatchAll();
@@ -50,7 +50,7 @@ namespace GHPC_Music_Controller {
 
     public override void OnSceneWasLoaded(int buildIndex, string sceneName) {
       if (sceneName == "MainMenu2_Scene" || sceneName == "t64_menu" ||
-          sceneName == "MainMenu2-1_Scene") {
+          sceneName == "MainMenu2-1_Scene" || sceneName == "leo2_menu") {
         activeScene = false;
         return;
       }
